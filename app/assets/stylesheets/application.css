@@ -15,3 +15,74 @@ img {
 	display: block; 
 	margin: 0 auto;
 }
+
+
+	body, html{
+/*		margin: 0;
+		padding: 0;*/
+	}
+
+	div 
+	{
+		/*border: 1px black solid;*/
+	}
+
+	div.wrap
+	{
+		min-width: 800px;
+		max-width: 1000px;
+		min-height: 1000px;
+		width: 65%;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	div.container
+	{
+		position: relative;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		min-width: 800px;
+		max-width: 1200px;
+		height: 600px;
+		margin: 0 auto;
+		border: none;
+	}
+
+	div.container:after 
+	{
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	div.controls
+	{
+		height: 30px;
+	}
+
+	div.controls form
+	{
+		float: left;
+	}
+
+	div.text_output
+	{
+		float: left;
+		height: 355px;
+		width: 62%;
+	}
+
+	div.guide
+	{
+		display: inline-block;
+		width: 37%;
+		height: 330px;
+		background-size: 100%;
+		overflow: hidden;
+	}
+
+	div.guide img
+	{
+		width: 100%;
+	}
