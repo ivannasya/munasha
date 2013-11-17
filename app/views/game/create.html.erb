@@ -1,36 +1,119 @@
-<%= image_tag @image, size: "800x600" %>
+	<div class="wrap">
+		<div class="container">
+			<%= image_tag @image, size: "800x600" %>
+		</div>
 
-<% if session[:way] != [] %>
-	<% unless session[:way].last == "1" || session[:way].last.nil? %>
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, 1) %>
-		<%= submit_tag "Дом" %>
-	<% end %>
-	<% end %>
+		<div class="controls">
+				<% if session[:way] != [] %>
+					<% unless session[:way].last == "1" || session[:way].last.nil? %>
+					<%= form_tag game_url, method: :post do %>
+						<%= hidden_field_tag(:step, 1) %>
+						<%= submit_tag "Дом" %>
+					<% end %>
+					<% end %>
 
-	<% unless session[:way].last == "2" %>
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, 2) %>
-		<%= submit_tag "Работа" %>
-	<% end %>
-	<% end %>
+					<% unless session[:way].last == "2" %>
+					<%= form_tag game_url, method: :post do %>
+						<%= hidden_field_tag(:step, 2) %>
+						<%= submit_tag "Работа" %>
+					<% end %>
+					<% end %>
 
-	<% unless session[:way].last == "3" %>
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, 3) %>
-		<%= submit_tag "Harat's" %>
-	<% end %>
-	<% end %>
+					<% unless session[:way].last == "3" %>
+					<%= form_tag game_url, method: :post do %>
+						<%= hidden_field_tag(:step, 3) %>
+						<%= submit_tag "Harat's" %>
+					<% end %>
+					<% end %>
 
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, params[:step]) %>
-		<%= submit_tag "Остаться" %>
-	<% end %>
-<% else %>
-	<%= form_tag game_url, method: :post do %>
-		<%= submit_tag "Продолжить" %>
-	<% end %>
-<% end %>
+					<%= form_tag game_url, method: :post do %>
+						<%= hidden_field_tag(:step, params[:step]) %>
+						<%= submit_tag "Остаться" %>
+					<% end %>
+				<% else %>
+					<%= form_tag game_url, method: :post do %>
+						<%= submit_tag "Продолжить" %>
+					<% end %>
+				<% end %>
+		</div>
 
-<div class="guide"><%= image_tag @guide, size: "120x180" %></div>
-<%= @text %>
+		<div class="text_output">
+			<%= @text %>
+		</div>
+		
+		<div class="guide"><%= image_tag @guide %></div>
+
+	</div>
+
+<style>
+	
+	body, html{
+		margin: 0;
+		padding: 0;
+	}
+
+	div 
+	{
+		border: 1px black solid;
+	}
+
+	div.wrap
+	{
+		min-width: 800px;
+		max-width: 1000px;
+		min-height: 1000px;
+		width: 65%;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	div.container
+	{
+		position: relative;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		min-width: 800px;
+		max-width: 1200px;
+		height: 600px;
+		margin: 0 auto;
+		border: none;
+	}
+
+	div.container:after 
+	{
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	div.controls
+	{
+		height: 30px;
+	}
+
+	div.controls form
+	{
+		float: left;
+	}
+
+	div.text_output
+	{
+		float: left;
+		height: 355px;
+		width: 62%;
+	}
+
+	div.guide
+	{
+		display: inline-block;
+		width: 37%;
+		height: 355px;
+		background-size: 100%;
+		overflow: hidden;
+	}
+
+	div.guide img
+	{
+		width: 100%;
+	}
+</style>

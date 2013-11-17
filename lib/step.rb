@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Step
 
 	def self.location(new_step)
