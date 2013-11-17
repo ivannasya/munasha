@@ -1,0 +1,36 @@
+<%= image_tag @image, size: "800x600" %>
+
+<% if session[:way] != [] %>
+	<% unless session[:way].last == "1" || session[:way].last.nil? %>
+	<%= form_tag game_url, method: :post do %>
+		<%= hidden_field_tag(:step, 1) %>
+		<%= submit_tag "Дом" %>
+	<% end %>
+	<% end %>
+
+	<% unless session[:way].last == "2" %>
+	<%= form_tag game_url, method: :post do %>
+		<%= hidden_field_tag(:step, 2) %>
+		<%= submit_tag "Работа" %>
+	<% end %>
+	<% end %>
+
+	<% unless session[:way].last == "3" %>
+	<%= form_tag game_url, method: :post do %>
+		<%= hidden_field_tag(:step, 3) %>
+		<%= submit_tag "Harat's" %>
+	<% end %>
+	<% end %>
+
+	<%= form_tag game_url, method: :post do %>
+		<%= hidden_field_tag(:step, params[:step]) %>
+		<%= submit_tag "Остаться" %>
+	<% end %>
+<% else %>
+	<%= form_tag game_url, method: :post do %>
+		<%= submit_tag "Продолжить" %>
+	<% end %>
+<% end %>
+
+<%= image_tag @guide, size: "120x180" %>
+<%= @text %>
