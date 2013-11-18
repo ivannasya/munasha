@@ -1,5 +1,4 @@
         <%= link_to 'Статистика', '#', class: 'show_statistics' %>
-
         <div class="statistics">
         	<h4>Колличество посещений:</h4>
         	<p>Дом: <%= session[:house] %><p>
@@ -13,42 +12,16 @@
 
                 <div class="controls">
                     <% if session[:way] != [] %>
-                            <% unless session[:way].last == "1" || session[:way].last.nil? %>
-	                            <%= form_tag game_url, method: :post do %>
-	                                    <%= hidden_field_tag(:step, 1) %>
-	                                    <%= submit_tag "Дом" %>
-	                            <% end %>
-                            <% end %>
 
-                            <% unless session[:way].last == "2" %>
-	                            <%= form_tag game_url, method: :post do %>
-	                                    <%= hidden_field_tag(:step, 2) %>
-	                                    <%= submit_tag "Работа" %>
-	                            <% end %>
-                            <% end %>
-
-                            <% unless session[:way].last == "3" %>
-	                            <%= form_tag game_url, method: :post do %>
-	                                    <%= hidden_field_tag(:step, 3) %>
-	                                    <%= submit_tag "Harat's" %>
-	                            <% end %>
-                            <% end %>
-
+                        <% @button.each do |b| %>
                             <%= form_tag game_url, method: :post do %>
-                                    <%= hidden_field_tag(:step, params[:step]) %>
-                                    <%= submit_tag "Остаться" %>
+                                        <%= hidden_field_tag(:step, b[:id]) %>
+                                        <%= submit_tag b[:title] %>
                             <% end %>
-                    <% else %>
-                            <%= form_tag game_url, method: :post do %>
-                                    <%= submit_tag "Продолжить" %>
-                            <% end %>
-                    <% end %>
-
-                     <% if session[:way].last == "2" %>
-                           <%= button_tag "Пошатать Иванову", id: "shake_Nastya" %>
+                     	<% end %>
                      <% end %>
+	
                 </div>
-
        </div>
 
 <div class="footer">
