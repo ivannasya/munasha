@@ -131,6 +131,27 @@ function mainTextOutput(choice){
 							 }
 					}
 			}	
+
+
+//специально для "house - work - harats - house - sleep" концовки
+			if ( text[textLine+1] == undefined && choice == 1 && allData[1].closing_event == 'new_game_url' )
+					{	
+						$('div.guide img').unbind('click');
+						$('input[type="submit"]').attr('disabled','disabled');
+						closing = true;
+						$('div.badge').show();
+						$('div.guide img').click(
+							function(){
+								if (allowNext==1)
+									{
+										allowNext=0;
+										self.location='new_game';
+									}
+							}
+						)
+					}
+
+
 	textLine++;
 }
 
@@ -162,6 +183,8 @@ $('input[type="submit"]').click(
 		textLine = 0;
 		allowNext = 0;
 		mainTextOutput(choice);
+
+		console.log(choice);
 
 		$('div.guide img').attr('src','/assets/' + allData[choice].guide);
 		

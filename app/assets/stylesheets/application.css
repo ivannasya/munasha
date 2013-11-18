@@ -74,6 +74,7 @@
 		top: 30px;
 		padding: 0px 25px;
 		z-index: 10;
+		color: white;
 	}
 
 	div.statistics > h1
@@ -81,7 +82,6 @@
 		width: 100%;
 		padding: 10px 0;
 		font-size: 45px;
-		color: white;
 	}
 
 	div.statistics > div.badge_shell
