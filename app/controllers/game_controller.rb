@@ -1,6 +1,9 @@
 class GameController < ApplicationController
 
 	def new
+		session[:way] = []
+		params[:step] = "1"
+		redirect_to game_url
 	end
 
   	def create
@@ -19,11 +22,5 @@ class GameController < ApplicationController
   		@image  = Step.location(session[:way]).image
   		@guide  = Step.location(session[:way]).guide
   		@button = Step.location(session[:way]).button
-  	# 	if session[:way].size == 4
-			# @image = Step.finish(session[:way]).image
-  	# 		@guide = Step.finish(session[:way]).guide
-  	# 		@text  = Step.finish(session[:way]).text
-  	# 		session[:way] = []
-  		# end
   	end
 end

@@ -2,9 +2,10 @@ Munashka::Application.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  
+
   get 'game' => "game#create"
   post 'game' => "game#create"
+  get 'new_game' => "game#new"
 
   root :to => 'sessions#new'
 
