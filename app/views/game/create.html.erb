@@ -101,6 +101,14 @@ function mainTextOutput(choice){
 						$('input[type="submit"]').removeAttr('disabled');
 						$('button').removeAttr('disabled');
 						closing = true;
+
+							if ( allData[0].closing_event == 'new_game_url') { 
+								function addNewGameLink(){
+									dest.innerHTML += '<Br/>'; 
+									dest.innerHTML += '<a href="new_game">Начать заново</a>';
+								}
+								 setTimeout(addNewGameLink(), 2000);
+							 }
 					}
 			}	
 	textLine++;
@@ -170,7 +178,6 @@ function show_text(text)
     len = source.length;
     show();
     //$('div.text_output').scrollTop = $('html').height();
-     objDiv.scrollTop = objDiv.scrollHeight;
 }
 
 function show()
@@ -181,6 +188,7 @@ function show()
     now+=letters;
     if( now < len ){setTimeout("show()",delay);}
 	if ( now == len ) { allowNext = 1; }
+	objDiv.scrollTop = objDiv.scrollHeight;
 }
 
 
@@ -226,9 +234,13 @@ $('button#shake_Nastya').click(
 				default:
 					shakeText = [' - Хватит...'];
 			}
-		
-		textContainer.html(shakeText);
-		show_text(shakeText);
+				
+			if (allowNext==1)
+				{
+					allowNext=0;
+					textContainer.html(shakeText);
+					show_text(shakeText);
+				}
 		shakeCount = shakeCount + 1;
 
 		}
