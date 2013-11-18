@@ -21,7 +21,8 @@ class GameController < ApplicationController
 	    end
 
 	    # Time of day
-	    time = ["Утро", "День", "Вечер", "Ночь", "Ночь"]
+	    time = ["", "Утро", "День", "Вечер", "Ночь", "Ночь"]
+	    p session[:way].size
   		p @time = time[session[:way].size]
   		
   		# Create new location
