@@ -1,3 +1,5 @@
+        <%= link_to 'Статистика', '#', class: 'show_statistics' %>
+
         <div class="statistics">
         	<h4>Колличество посещений:</h4>
         	<p>Дом: <%= session[:house] %><p>
@@ -6,7 +8,7 @@
         </div>
         <div class="wrap">
                 <div class="container">
-                        <%= image_tag @image, size: "800x600" %>
+                        <%= image_tag @image %>
                 </div>
 
                 <div class="controls">
@@ -43,30 +45,34 @@
                                 <% end %>
                 </div>
 
-
-                <p style="display:none" id="pageTextSource">
-                        <%= @text %>
-                </p>
-
-                <div class="text_output">
-                        <p id="pageText">
-                        </p>
-                </div>
-
-                <div class="guide"><%= image_tag @guide %></div>
-
-        </div>
-
-
-				<% if session[:way].last == "2" %>
-					<%= link_to "#" do %>
-						<%= image_tag "guide_nastya_2.png", size: "120x180" %>
-						Потрясти Иванову
-					<% end %>
-					
-				<% end %>
+       </div>
+<div class="footer">
+	
+	                <p style="display:none" id="pageTextSource">
+	                        <%= @text %>
+	                </p>
+	
+	                <div class="text_output">
+	                        <p id="pageText">
+	                        </p>
+	                </div>
+	
+	                <div class="guide"><%= image_tag @guide %></div>
+</div>
 
 <script>
+
+$('a.show_statistics').click(
+	function(){
+		$('div.statistics').slideToggle();
+	}
+	)
+
+$('div.guide > img').click(
+		function(){
+			$(this).html('<%= image_tag "guide_nastya_2.png", size: "120x180" %>');
+		}
+	)
 
  var source,dest,len,now=0,delay=30,letters=1;
 
