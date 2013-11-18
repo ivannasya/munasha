@@ -27,10 +27,20 @@ img {
 		/*border: 1px black solid;*/
 	}
 
+	a.show_statistics
+	{
+		position: absolute;
+		z-index: 10;
+	}
+
 	div.statistics
 	{
 		position: absolute;
 		display: none;
+		top: 30px;
+		padding: 0px 25px;
+		background: rgba(100, 100, 100, 0.4);
+		z-index: 10;
 	}
 
 	div.wrap

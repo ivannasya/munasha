@@ -12,55 +12,98 @@
                 </div>
 
                 <div class="controls">
-                                <% if session[:way] != [] %>
-                                        <% unless session[:way].last == "1" || session[:way].last.nil? %>
-                                        <%= form_tag game_url, method: :post do %>
-                                                <%= hidden_field_tag(:step, 1) %>
-                                                <%= submit_tag "Дом" %>
-                                        <% end %>
-                                        <% end %>
+                    <% if session[:way] != [] %>
+                            <% unless session[:way].last == "1" || session[:way].last.nil? %>
+                            <%= form_tag game_url, method: :post do %>
+                                    <%= hidden_field_tag(:step, 1) %>
+                                    <%= submit_tag "Дом" %>
+                            <% end %>
+                            <% end %>
 
-                                        <% unless session[:way].last == "2" %>
-                                        <%= form_tag game_url, method: :post do %>
-                                                <%= hidden_field_tag(:step, 2) %>
-                                                <%= submit_tag "Работа" %>
-                                        <% end %>
-                                        <% end %>
+                            <% unless session[:way].last == "2" %>
+                            <%= form_tag game_url, method: :post do %>
+                                    <%= hidden_field_tag(:step, 2) %>
+                                    <%= submit_tag "Работа" %>
+                            <% end %>
+                            <% end %>
 
-                                        <% unless session[:way].last == "3" %>
-                                        <%= form_tag game_url, method: :post do %>
-                                                <%= hidden_field_tag(:step, 3) %>
-                                                <%= submit_tag "Harat's" %>
-                                        <% end %>
-                                        <% end %>
+                            <% unless session[:way].last == "3" %>
+                            <%= form_tag game_url, method: :post do %>
+                                    <%= hidden_field_tag(:step, 3) %>
+                                    <%= submit_tag "Harat's" %>
+                            <% end %>
+                            <% end %>
 
-                                        <%= form_tag game_url, method: :post do %>
-                                                <%= hidden_field_tag(:step, params[:step]) %>
-                                                <%= submit_tag "Остаться" %>
-                                        <% end %>
-                                <% else %>
-                                        <%= form_tag game_url, method: :post do %>
-                                                <%= submit_tag "Продолжить" %>
-                                        <% end %>
-                                <% end %>
+                            <%= form_tag game_url, method: :post do %>
+                                    <%= hidden_field_tag(:step, params[:step]) %>
+                                    <%= submit_tag "Остаться" %>
+                            <% end %>
+                    <% else %>
+                            <%= form_tag game_url, method: :post do %>
+                                    <%= submit_tag "Продолжить" %>
+                            <% end %>
+                    <% end %>
+
+                     <% if session[:way].last == "2" %>
+                           <%= button_tag "Пошатать Иванову", id: "shake_Nastya" %>
+                     <% end %>
                 </div>
 
        </div>
-<div class="footer">
-	
-	                <p style="display:none" id="pageTextSource">
-	                        <%= @text %>
-	                </p>
-	
-	                <div class="text_output">
-	                        <p id="pageText">
-	                        </p>
-	                </div>
-	
-	                <div class="guide"><%= image_tag @guide %></div>
-</div>
+		<div class="footer">
+                <p style="display:none" id="pageTextSource">
+                        <%= @text %>
+                </p>
+
+                <div class="text_output">
+                        <p id="pageText">
+                        </p>
+                </div>
+
+                <div class="guide"><%= image_tag @guide %></div>
+		</div>
 
 <script>
+
+var shakeCount = 0, shakeText = '';
+
+$('button#shake_Nastya').click(
+		function(){
+
+			switch (shakeCount)
+			{
+				case 0:
+					shakeText = '- Ну, Миша, ну, перестань! Я работаю!';
+				break;
+				
+				case 1:
+					shakeText = '- Мунаев, прекрати! Это непотребство!';
+				break;
+
+				case 2:
+					shakeText = '- Миша, я Никите пожалуюсь! - Никита, чего он мне мешает! Скажи ему!'
+				break;
+
+				case 3:
+					$('div.guide').html('<%= image_tag "guide_nick_2.png" %>');
+					shakeText = '- Продолжай, друг.'
+				break;
+
+				case 4:
+					$('div.guide').html('<%= image_tag "guide_nastya_2.png" %>');
+					shakeText = '=_='
+				break;
+
+				default:
+					shakeText = ' - Хватит...';
+			}
+		
+		show_text();
+		shakeCount = shakeCount + 1;
+
+		}
+	)
+
 
 $('a.show_statistics').click(
 	function(){
@@ -68,16 +111,23 @@ $('a.show_statistics').click(
 	}
 	)
 
-$('div.guide > img').click(
+$('div.guide img').click(
 		function(){
-			$(this).html('<%= image_tag "guide_nastya_2.png", size: "120x180" %>');
+			$('div.guide').html('<%= image_tag "guide_nastya_2.png" %>');
 		}
 	)
 
  var source,dest,len,now=0,delay=30,letters=1;
 
-function show_text()
+function show_text(text)
 {
+	for (var i = 0; i < text.length; i++) {
+		text[i]
+	};
+
+	textContainer = $('p#pageTextSource');
+		textContainer.html(shakeText);
+
     now=0;
     source = document.getElementById("pageTextSource");
     dest = document.getElementById("pageText");
