@@ -1,36 +1,95 @@
-<%= image_tag @image, size: "800x600" %>
+        <div class="statistics">
+        	<h4>Колличество посещений:</h4>
+        	<p>Дом: <%= session[:house] %><p>
+        	<p>Работа: <%= session[:work] %><p>
+        	<p>Harat's: <%= session[:harats] %><p>
+        </div>
+        <div class="wrap">
+                <div class="container">
+                        <%= image_tag @image, size: "800x600" %>
+                </div>
 
-<% if session[:way] != [] %>
-	<% unless session[:way].last == "1" || session[:way].last.nil? %>
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, 1) %>
-		<%= submit_tag "Дом" %>
-	<% end %>
-	<% end %>
+                <div class="controls">
+                                <% if session[:way] != [] %>
+                                        <% unless session[:way].last == "1" || session[:way].last.nil? %>
+                                        <%= form_tag game_url, method: :post do %>
+                                                <%= hidden_field_tag(:step, 1) %>
+                                                <%= submit_tag "Дом" %>
+                                        <% end %>
+                                        <% end %>
 
-	<% unless session[:way].last == "2" %>
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, 2) %>
-		<%= submit_tag "Работа" %>
-	<% end %>
-	<% end %>
+                                        <% unless session[:way].last == "2" %>
+                                        <%= form_tag game_url, method: :post do %>
+                                                <%= hidden_field_tag(:step, 2) %>
+                                                <%= submit_tag "Работа" %>
+                                        <% end %>
+                                        <% end %>
 
-	<% unless session[:way].last == "3" %>
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, 3) %>
-		<%= submit_tag "Harat's" %>
-	<% end %>
-	<% end %>
+                                        <% unless session[:way].last == "3" %>
+                                        <%= form_tag game_url, method: :post do %>
+                                                <%= hidden_field_tag(:step, 3) %>
+                                                <%= submit_tag "Harat's" %>
+                                        <% end %>
+                                        <% end %>
 
-	<%= form_tag game_url, method: :post do %>
-		<%= hidden_field_tag(:step, params[:step]) %>
-		<%= submit_tag "Остаться" %>
-	<% end %>
-<% else %>
-	<%= form_tag game_url, method: :post do %>
-		<%= submit_tag "Продолжить" %>
-	<% end %>
-<% end %>
+                                        <%= form_tag game_url, method: :post do %>
+                                                <%= hidden_field_tag(:step, params[:step]) %>
+                                                <%= submit_tag "Остаться" %>
+                                        <% end %>
+                                <% else %>
+                                        <%= form_tag game_url, method: :post do %>
+                                                <%= submit_tag "Продолжить" %>
+                                        <% end %>
+                                <% end %>
+                </div>
 
-<div class="guide"><%= image_tag @guide, size: "120x180" %></div>
-<%= @text %>
+
+                <p style="display:none" id="pageTextSource">
+                        <%= @text %>
+                </p>
+
+                <div class="text_output">
+                        <p id="pageText">
+                        </p>
+                </div>
+
+                <div class="guide"><%= image_tag @guide %></div>
+
+        </div>
+
+
+				<% if session[:way].last == "2" %>
+					<%= link_to "#" do %>
+						<%= image_tag "guide_nastya_2.png", size: "120x180" %>
+						Потрясти Иванову
+					<% end %>
+					
+				<% end %>
+
+<script>
+
+ var source,dest,len,now=0,delay=30,letters=1;
+
+function show_text()
+{
+    now=0;
+    source = document.getElementById("pageTextSource");
+    dest = document.getElementById("pageText");
+    dest.innerHTML = '';
+    len = source.innerHTML.length;
+    show();
+}
+
+function show()
+{
+    if ( source.innerHTML.substr(now,letters) == '-') { dest.innerHTML += '<Br/>' }
+    dest.innerHTML += source.innerHTML.substr(now,letters);
+    now+=letters;
+    if( now < len ){setTimeout("show()",delay);}
+}
+
+$(function() {
+  show_text();
+}
+)
+</script>

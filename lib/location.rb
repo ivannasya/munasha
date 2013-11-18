@@ -1,9 +1,8 @@
 class Location
-attr_accessor :image, :guide, :text, :amount
-	def initialize(image, guide, text, amount)
+attr_accessor :image, :guide, :text
+	def initialize(image, guide, text)
 		@image = image
 		@guide = guide
 		@text = text
-		@amount = amount
 	end
 end
