@@ -88,6 +88,13 @@ img {
 		float: left;
 	}
 
+	div.controls span
+	{
+		float: left;
+		line-height: 25px;
+		padding: 0 10px;
+	}
+
 
 	div.footer
 	{

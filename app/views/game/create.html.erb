@@ -6,12 +6,12 @@
         	<p>Harat's: <%= session[:harats] %><p>
         </div>
         <div class="wrap">
-        	    <%= @time %>
                 <div class="container">
                         <%= image_tag @image %>
                 </div>
 
                 <div class="controls">
+                	<span><%= @time %></span>
                     <% if session[:way] != [] %>
 
                         <% @button.each do |b| %>
@@ -103,11 +103,7 @@ function mainTextOutput(choice){
 						closing = true;
 
 							if ( allData[0].closing_event == 'new_game_url') { 
-								function addNewGameLink(){
-									dest.innerHTML += '<Br/>'; 
-									dest.innerHTML += '<a href="new_game">Начать заново</a>';
-								}
-								 setTimeout(addNewGameLink(), 2000);
+									$('div.controls').append('<form action="new_game"><button type="submit">Начать заново</button></form>');
 							 }
 					}
 			}	
