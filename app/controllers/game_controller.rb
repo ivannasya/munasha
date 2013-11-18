@@ -7,6 +7,10 @@ class GameController < ApplicationController
 	end
 
   	def create
+  		# Аdd the selected location in the way
+  		params[:step] = "1" if params[:step].nil?
+  		p session[:way] << params[:step]
+
   		# Statistics of visits 
   		case params[:step]
 		when "1" then session[:house] += 1
@@ -17,10 +21,6 @@ class GameController < ApplicationController
 	    # Time of day
 	    time = ["Утро", "День", "Вечер", "Ночь", "Ночь"]
   		p @time = time[session[:way].size]
-
-  		# Аdd the selected location in the way
-  		params[:step] = "1" if params[:step].nil?
-  		p session[:way] << params[:step]
   		
   		# Create new location
 		# begin
