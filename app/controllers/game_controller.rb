@@ -16,8 +16,8 @@ class GameController < ApplicationController
   		# time = ["", "Утро", "День", "Вечер", "Ночь"]
   		# p @time = time[session[:way].size]
 
-  		@image = Step.location(session[:way]).image
-  		@guide = Step.location(session[:way]).guide
+  		@image  = Step.location(session[:way]).image
+  		@guide  = Step.location(session[:way]).guide
   		@button = Step.location(session[:way]).button
   	# 	if session[:way].size == 4
 			# @image = Step.finish(session[:way]).image

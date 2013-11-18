@@ -15,8 +15,8 @@
 
                         <% @button.each do |b| %>
                             <%= form_tag game_url, method: :post do %>
-                                        <%= hidden_field_tag(:step, b[:id]) %>
-                                        <%= submit_tag b[:title] %>
+                                    <%= hidden_field_tag(:step, b[:id]) %>
+                                    <%= submit_tag b[:title] %>
                             <% end %>
                      	<% end %>
                      <% end %>
