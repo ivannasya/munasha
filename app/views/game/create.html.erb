@@ -44,6 +44,21 @@
 </div>
 
 <script>
+
+	
+	// Первоначальная блокировка кнопок и вывод первой строки текста
+	$(function() {
+		$('input[type="submit"]').attr('disabled','disabled');
+	  	mainTextOutput(0);
+	});
+
+
+	$(document).keydown(function(e){
+	    if (e.keyCode == 32) { 
+	       $('div.guide img').click();
+	       return false;
+	    }
+	});	
 	
 	//var initialText = <%= raw @guide[0][:text].to_json %>;
 	//var closingText = <%= raw @guide.to_json %>;
@@ -78,7 +93,7 @@ function mainTextOutput(choice){
 						function(){
 							$('input[type="hidden"]').each(
 								function(){
-									if ($(this).val() ==choice) $(this).siblings('input[type="submit"]').removeAttr('disabled').click();
+									if ($(this).val() ==choice) $(this).siblings('input[type="submit"]').removeAttr('disabled').click().attr('disabled','disabled');
 								});
 						}
 					)
@@ -96,12 +111,15 @@ function mainTextOutput(choice){
 	textLine++;
 }
 
-// первоначальный вывод вступительного текста
+// установка события клика на гайда
+function setClickEvent(){
 $('div.guide img').click(
 	function(){
 			mainTextOutput(0);
-		}
-	)
+		})
+};
+setClickEvent();
+
 
 
 // то, что происходит после сабмита
@@ -116,6 +134,8 @@ $('input[type="submit"]').click(
 
 		textLine = 0;
 		mainTextOutput(choice);
+
+		$('div.guide img').attr('src','/assets/' + allData[choice].guide);
 		
 		$('div.guide img').click(
 					function(){
@@ -124,6 +144,7 @@ $('input[type="submit"]').click(
 					);
 
 		$('input[type="submit"]').attr('disabled','disabled');
+		$('button').attr('disabled','disabled');
 
 		return false;
 
@@ -216,11 +237,4 @@ $('a.show_statistics').click(
 			$('div.statistics').slideToggle();
 		}
 	)
-
-// Первоначальная блокировка кнопок и вывод первой строки текста
-$(function() {
-	$('input[type="submit"]').attr('disabled','disabled');
-  	mainTextOutput(0);
-}
-)
 </script>
