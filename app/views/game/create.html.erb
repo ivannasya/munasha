@@ -1,9 +1,17 @@
         <%= link_to 'Статистика', '#', class: 'show_statistics' %>
         <div class="statistics">
+        	<h1>СТАТИСТИКА</h1>
         	<h4>Количество посещений:</h4>
         	<p>Дом: <%= session[:house] %><p>
         	<p>Работа: <%= session[:work] %><p>
         	<p>Harat's: <%= session[:harats] %><p>
+        	<div class="badge_shell">
+        		<div class="badge_end badge_end_1"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
+        		<div class="badge_end badge_end_2"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
+        		<div class="badge_end badge_end_3"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
+        		<div class="badge_end badge_end_4"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
+        		<div class="badge_end badge_end_5"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
+        	</div>
         </div>
         <div class="wrap">
                 <div class="container">
@@ -41,6 +49,10 @@
 	                </div>
 	
 	                <div class="guide"><%= image_tag @guide[0][:guide] %></div>
+</div>
+
+<div class="badge">
+	<%= image_tag 'badge.png' %>
 </div>
 
 <script>
@@ -104,7 +116,8 @@ function mainTextOutput(choice){
 						$('button').removeAttr('disabled');
 						closing = true;
 
-							if ( allData[0].closing_event == 'new_game_url') { 
+							if ( allData[0].closing_event == 'new_game_url' ) { 
+										$('div.badge').show();
 										$('div.guide img').click(
 											function(){
 												if (allowNext==1)
