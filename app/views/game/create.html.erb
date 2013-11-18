@@ -103,7 +103,16 @@ function mainTextOutput(choice){
 						closing = true;
 
 							if ( allData[0].closing_event == 'new_game_url') { 
-									$('div.controls').append('<form action="new_game"><button type="submit">Начать заново</button></form>');
+										$('div.guide img').click(
+											function(){
+												if (allowNext==1)
+													{
+														allowNext=0;
+														self.location='new_game';
+													}
+												
+											}
+										)
 							 }
 					}
 			}	
