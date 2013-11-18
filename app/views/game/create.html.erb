@@ -20,6 +20,10 @@
                             <% end %>
                      	<% end %>
                      <% end %>
+
+                    <% if session[:way].last == "2" %>
+						<%= button_tag 'Пошатать Иванову', id: 'shake_Nastya', disabled: true %>
+					<% end %>
 	
                 </div>
        </div>
@@ -30,7 +34,7 @@
 	                        <%= @guide[0][:text] %>
 	                </p>
 	
-	                <div class="text_output">
+	                <div class="text_output" id="text_output">
 
 	                        <p id="pageText">
 	                        </p>
@@ -48,6 +52,7 @@
 	var initialText = allData[0].text;
 	var closing = false;
 	var textLine = 0;
+	var objDiv = document.getElementById("text_output");
 
 // функция вывода текста
 function mainTextOutput(choice){
@@ -84,11 +89,11 @@ function mainTextOutput(choice){
 					{	
 						$('div.guide img').unbind('click');
 						$('input[type="submit"]').removeAttr('disabled');
+						$('button').removeAttr('disabled');
 						closing = true;
 					}
 			}	
 	textLine++;
-	$('div.text_output').animate({ scrollTop: $('div.text_output').height() }, 'slow');
 }
 
 // первоначальный вывод вступительного текста
@@ -140,6 +145,8 @@ function show_text(text)
     //len = source.innerHTML.length;
     len = source.length;
     show();
+    //$('div.text_output').scrollTop = $('html').height();
+     objDiv.scrollTop = objDiv.scrollHeight;
 }
 
 function show()
@@ -159,37 +166,44 @@ $('button#shake_Nastya').click(
 		function(){
 
 			textContainer = $('p#pageTextSource');
+			textLine = 0;
 				
 			switch (shakeCount)
 			{
 				case 0:
-					shakeText = '- Ну, Миша, ну, перестань! Я работаю!';
+					$('div.guide').html('<%= image_tag "guide_nastya_1.png" %>');
+					
+					dest.innerHTML += '<Br/>';
+					dest.innerHTML += '==============';
+					dest.innerHTML += '<Br/>';
+
+					shakeText = ['- Ну, Миша, ну, перестань! Я работаю!'];
 				break;
 				
 				case 1:
-					shakeText = '- Мунаев, прекрати! Это непотребство!';
+					shakeText = ['- Мунаев, прекрати! Это непотребство!'];
 				break;
 
 				case 2:
-					shakeText = '- Миша, я Никите пожалуюсь! - Никита, чего он мне мешает! Скажи ему!'
+					shakeText = ['- Миша, я Никите пожалуюсь! - Никита, чего он мне мешает! Скажи ему!']
 				break;
 
 				case 3:
 					$('div.guide').html('<%= image_tag "guide_nick_2.png" %>');
-					shakeText = '- Продолжай, друг.'
+					shakeText = ['- Продолжай, друг.'];
 				break;
 
 				case 4:
 					$('div.guide').html('<%= image_tag "guide_nastya_2.png" %>');
-					shakeText = '=_='
+					shakeText = ['=_='];
 				break;
 
 				default:
-					shakeText = ' - Хватит...';
+					shakeText = [' - Хватит...'];
 			}
 		
 		textContainer.html(shakeText);
-		show_text();
+		show_text(shakeText);
 		shakeCount = shakeCount + 1;
 
 		}
