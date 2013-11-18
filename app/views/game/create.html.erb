@@ -49,7 +49,7 @@
 <div class="footer">
 	
 	                <p style="display:none" id="pageTextSource">
-	                        <%= @text %>
+	                        <%= @guide[0][:text] %>
 	                </p>
 	
 	                <div class="text_output">
@@ -57,7 +57,7 @@
 	                        </p>
 	                </div>
 	
-	                <div class="guide"><%= image_tag @guide %></div>
+	                <div class="guide"><%= image_tag @guide[0][:guide] %></div>
 </div>
 
 <script>
