@@ -30,7 +30,7 @@
                      	<% end %>
                      <% end %>
 
-                    <% if session[:way].last == "2" %>
+                    <% if session[:way].last == "2" && @guide[0][:guide] != 'guide_slava_1.png' && @guide[0][:guide] != 'guide_slava_2.png'%>
 						<%= button_tag 'Пошатать Иванову', id: 'shake_Nastya', disabled: true %>
 					<% end %>
 	
