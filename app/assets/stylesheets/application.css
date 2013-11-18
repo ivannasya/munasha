@@ -22,7 +22,7 @@
 		margin: 0 auto;
 	}
 
-	h2, h3, div#new_game_form{
+	h2, h3, h4, div#new_game_form{
 		font-size: 27px;
 		width: 850px;
 		margin: 0 auto;
@@ -31,6 +31,11 @@
 
 	h3{
 		font-size: 20px;
+	}
+
+	h4
+	{
+		font-size: 15px;
 	}
 
 	div#new_game_form input
