@@ -15,8 +15,8 @@ class GameController < ApplicationController
 	    end
 
 	    # Time of day
-	    time = ["", "Утро", "День", "Вечер", "Ночь"]
-  		@time = time[session[:way].size]
+	    time = ["Утро", "День", "Вечер", "Ночь", "Ночь"]
+  		p @time = time[session[:way].size]
 
   		# Аdd the selected location in the way
   		params[:step] = "1" if params[:step].nil?
