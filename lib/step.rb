@@ -24,6 +24,14 @@ class Step
 					],
 				  	[{title: "Спать дальше", id: "1"}, {title: "На работу", id: "2"}, {title: "В Harat's", id: "3"}]
 				)
+		# house-work
+		when ["1", "1", "2"]
+			Location.new("offffffice.png",
+				 	[{id: "0", guide: "guide_nick_1.png", closing_event: "game_url", text: ["- А что ты собственно тут делаешь, друг?","- Я домой. Удачки ^^"]}, 
+					 {id: "1", guide: "empty_guide.png", closing_event: "new_game_url", text: ["- Оставим формальности, ок?","- СНАЧАЛА!" ]}
+					],
+				  	[{title: "Поехать домой", id: "1"}]
+				)
 		# house-house
 		when ["1", "1", "1"]
 			Location.new("home.png",
