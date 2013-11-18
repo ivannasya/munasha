@@ -101,7 +101,7 @@ img {
 	div.text_output
 	{
 		float: left;
-		height: 100%;
+		height: 90%;
 		overflow-y: auto;
 		width: 62%;
 	}

@@ -52,7 +52,6 @@
 // функция вывода текста
 function mainTextOutput(choice){
 	var text = allData[choice].text
-	textLine++;
 
 		if ( text[textLine] )
 			{
@@ -70,11 +69,14 @@ function mainTextOutput(choice){
 				console.log(choice);
 				console.log( $('input[type="hidden"]') );
 					
-					$('input[type="hidden"]').each(
-							function(){
-								console.log( $(this).val() );
-								if ($(this).val() ==choice) $(this).siblings('input[type="submit"]').removeAttr('disabled');
-							});
+				$('div.guide img').click(
+						function(){
+							$('input[type="hidden"]').each(
+								function(){
+									if ($(this).val() ==choice) $(this).siblings('input[type="submit"]').removeAttr('disabled').click();
+								});
+						}
+					)
 			}
 		else
 			{
@@ -85,7 +87,7 @@ function mainTextOutput(choice){
 						closing = true;
 					}
 			}	
-
+	textLine++;
 	$('div.text_output').animate({ scrollTop: $('div.text_output').height() }, 'slow');
 }
 
@@ -204,7 +206,7 @@ $('a.show_statistics').click(
 // Первоначальная блокировка кнопок и вывод первой строки текста
 $(function() {
 	$('input[type="submit"]').attr('disabled','disabled');
-  	show_text(initialText);
+  	mainTextOutput(0);
 }
 )
 </script>
