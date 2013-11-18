@@ -11,8 +11,32 @@
  *= require_self
  *= require_tree .
  */
+	h1, h2, h3, h4, h5{
+		font-family: Helvetica, Tahoma, Arial, sans-serif;
+	}
+
 	h1{
+		font-size: 100px;
 		text-align: center;
+		width: 900px;
+		margin: 0 auto;
+	}
+
+	h2, h3, div#new_game_form{
+		font-size: 27px;
+		width: 850px;
+		margin: 0 auto;
+		text-align: left;
+	}
+
+	h3{
+		font-size: 20px;
+	}
+
+	div#new_game_form input
+	{
+		font-size: 36px;
+		padding: 10px;
 	}
 
 	img {
