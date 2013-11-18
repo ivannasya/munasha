@@ -9,29 +9,31 @@
         <div class="wrap">
                 <div class="container">
                         <%= image_tag @image %>
+
+                        <%= @image %>
                 </div>
 
                 <div class="controls">
                     <% if session[:way] != [] %>
                             <% unless session[:way].last == "1" || session[:way].last.nil? %>
-                            <%= form_tag game_url, method: :post do %>
-                                    <%= hidden_field_tag(:step, 1) %>
-                                    <%= submit_tag "Дом" %>
-                            <% end %>
+	                            <%= form_tag game_url, method: :post do %>
+	                                    <%= hidden_field_tag(:step, 1) %>
+	                                    <%= submit_tag "Дом" %>
+	                            <% end %>
                             <% end %>
 
                             <% unless session[:way].last == "2" %>
-                            <%= form_tag game_url, method: :post do %>
-                                    <%= hidden_field_tag(:step, 2) %>
-                                    <%= submit_tag "Работа" %>
-                            <% end %>
+	                            <%= form_tag game_url, method: :post do %>
+	                                    <%= hidden_field_tag(:step, 2) %>
+	                                    <%= submit_tag "Работа" %>
+	                            <% end %>
                             <% end %>
 
                             <% unless session[:way].last == "3" %>
-                            <%= form_tag game_url, method: :post do %>
-                                    <%= hidden_field_tag(:step, 3) %>
-                                    <%= submit_tag "Harat's" %>
-                            <% end %>
+	                            <%= form_tag game_url, method: :post do %>
+	                                    <%= hidden_field_tag(:step, 3) %>
+	                                    <%= submit_tag "Harat's" %>
+	                            <% end %>
                             <% end %>
 
                             <%= form_tag game_url, method: :post do %>
@@ -52,7 +54,7 @@
        </div>
 		<div class="footer">
                 <p style="display:none" id="pageTextSource">
-                        <%= @text %>
+                        <%= @guide[0][:text] %>
                 </p>
 
                 <div class="text_output">
@@ -60,7 +62,7 @@
                         </p>
                 </div>
 
-                <div class="guide"><%= image_tag @guide %></div>
+                <div class="guide"><%= image_tag @guide[0][:guide] %></div>
 		</div>
 
 <script>
