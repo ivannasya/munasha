@@ -113,7 +113,7 @@ function mainTextOutput(choice){
 				show_text(text);
 			}
 
-		if (closing == true && choice > 0 && text[textLine+1] == undefined && (allData[1].closing_event != "Остаться в Harat’s" || choice == 3 && allData[1].closing_event != "Остаться в Harat’s" ) )
+		if (closing == true && choice > 0 && text[textLine+1] == undefined && (allData[1].closing_event != "Остаться в Harat’s" || (choice == 3 && allData[1].closing_event == "Остаться в Harat’s") ) )
 			{
 				$('div.guide img').unbind('click');
 				$('input[type="submit"]').unbind('click');
