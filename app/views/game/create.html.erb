@@ -172,7 +172,7 @@ function mainTextOutput(choice){
 					}
 
 //специально для кнопок остаться в харатс
-			if ( text[textLine+1] == undefined && allData[1].closing_event == 'new_game_url' )
+			if ( text[textLine+1] == undefined && choice != 0 &&  (allData[1].closing_event == 'Остаться в Harat’s' || allData[2].closing_event == 'Остаться в Harat’s' ) )
 					{	
 						$('input[type="submit"]').val("Остаться в Harat's");
 					}
