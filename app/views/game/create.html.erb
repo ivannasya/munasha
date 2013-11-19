@@ -138,7 +138,7 @@ function mainTextOutput(choice){
 						closing = true;
 
 							if ( allData[0].closing_event == 'new_game_url' ) { 
-										$('div.badge').show();
+										//$('div.badge').show();
 										$('div.guide img').click(
 											function(){
 												if (allowNext==1)
@@ -160,7 +160,7 @@ function mainTextOutput(choice){
 						$('div.guide img').unbind('click');
 						$('input[type="submit"]').attr('disabled','disabled');
 						closing = true;
-						$('div.badge').show();
+						//$('div.badge').show();
 						$('div.guide img').click(
 							function(){
 								if (allowNext==1)
