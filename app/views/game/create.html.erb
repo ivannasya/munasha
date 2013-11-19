@@ -113,7 +113,7 @@ function mainTextOutput(choice){
 				show_text(text);
 			}
 
-		if (closing == true && choice > 0 && text[textLine+1] == undefined )
+		if (closing == true && choice > 0 && text[textLine+1] == undefined && allData[1].closing_event != "Остаться в Harat’s" )
 			{
 				$('div.guide img').unbind('click');
 				$('input[type="submit"]').unbind('click');
@@ -172,9 +172,16 @@ function mainTextOutput(choice){
 					}
 
 //специально для кнопок остаться в харатс
-			if ( text[textLine+1] == undefined && choice != 0 &&  (allData[1].closing_event == 'Остаться в Harat’s' || allData[2].closing_event == 'Остаться в Harat’s' ) )
+			if ( text[textLine+1] == undefined && choice != 0 &&  ( allData[1].closing_event == "Остаться в Harat’s" || allData[2].closing_event == "Остаться в Harat’s" ) )
 					{	
-						$('input[type="submit"]').val("Остаться в Harat's");
+
+						$('input[type="hidden"]').each(
+								function(){
+									if ($(this).val() ==choice) $(this).siblings('input[type="submit"]').val("Остаться в Harat's").unbind('click');
+								});
+
+							$('div.guide img').unbind('click');
+							$('input[type="submit"]').removeAttr('disabled');
 					}
 
 	textLine++;
