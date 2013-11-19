@@ -42,7 +42,7 @@ class GameController < ApplicationController
 	  		@image  = Step.location(session[:way]).image
 	  		@guide  = Step.location(session[:way]).guide
 	  		@button = Step.location(session[:way]).button
-    	#	rescue
+  #   		rescue
 		# 		redirect_to new_game_url
 		# end
   	end
