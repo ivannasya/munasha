@@ -16,6 +16,7 @@
 		margin: 0;
 		height: 100%;
 		min-height: 100%;
+		font-family: Helvetica, Tahoma, Arial, sans-serif;
  	}
 
  	div.start_wrapper
@@ -31,11 +32,14 @@
 
 	h1{
 		font-size: 100px;
+		position: relative;
 		text-align: center;
 		width: 900px;
-		margin: 0 auto;
-		color: black;
-		margin-bottom: 30px;
+		color: #000;
+		margin: 0px auto;
+		margin-bottom: 171px;
+		margin-top: 0px;
+		top: 145px;
 	}
 
 	h2, h3, h4, div#new_game_form{
@@ -74,7 +78,7 @@
 		display: block;
 		font-size: 67px;
 		width: 845px;
-		margin: 53px auto;
+		margin: 23px auto;
 		text-decoration: none;
 		margin-left: auto;
 	}
@@ -117,11 +121,28 @@
 		color: white;
 	}
 
-	div.statistics > h1
+	div.statistics > p
+	{
+		font-family: Helvetica, Tahoma, Arial, sans-serif;
+		font-weight: 100;
+	}
+
+	div.statistics > h1#stat_header
 	{
 		width: 100%;
 		padding: 10px 0;
 		font-size: 45px;
+		margin: 0;
+		color: white;
+		position: initial;
+	}
+
+	div.statistics > h4
+	{
+		font-size: 15px;
+		text-transform: uppercase;
+		color: #FFF;
+		font-weight: 100;
 	}
 
 	div.statistics > div.badge_shell
