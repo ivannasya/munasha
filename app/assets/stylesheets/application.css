@@ -11,8 +11,22 @@
  *= require_self
  *= require_tree .
  */
-	h1, h2, h3, h4, h5{
+
+ 	html, body{
+		margin: 0;
+		height: 100%;
+		min-height: 100%;
+ 	}
+
+ 	div.start_wrapper
+ 	{
+ 		height: 100%;
+ 	}
+
+	h1, h2, h3, h4, h5, a.begin_link{
 		font-family: Helvetica, Tahoma, Arial, sans-serif;
+		color: rgb(70,70,70);
+
 	}
 
 	h1{
@@ -20,17 +34,20 @@
 		text-align: center;
 		width: 900px;
 		margin: 0 auto;
+		color: black;
+		margin-bottom: 30px;
 	}
 
 	h2, h3, h4, div#new_game_form{
 		font-size: 27px;
-		width: 850px;
+		width: 838px;
 		margin: 0 auto;
 		text-align: left;
 	}
 
 	h3{
 		font-size: 20px;
+		margin-top: 30px;
 	}
 
 	h4
@@ -38,10 +55,33 @@
 		font-size: 15px;
 	}
 
+	h4#title_tip
+	{
+		position: relative;
+		margin: 0 auto;
+		bottom: 30px;
+	}
+
 	div#new_game_form input
 	{
 		font-size: 36px;
 		padding: 10px;
+		display: none;
+	}
+
+	a.begin_link
+	{
+		display: block;
+		font-size: 67px;
+		width: 845px;
+		margin: 53px auto;
+		text-decoration: none;
+		margin-left: auto;
+	}
+
+	a.begin_link:hover
+	{
+		color: #000;
 	}
 
 	img {
