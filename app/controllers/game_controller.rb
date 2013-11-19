@@ -12,7 +12,7 @@ class GameController < ApplicationController
 
   		# Аdd the selected location in the way
   		params[:step] = "1" if params[:step].nil?
-  		session[:way] << params[:step]
+  		p session[:way] << params[:step]
 
   		# Statistics of visits 
   		case params[:step]
