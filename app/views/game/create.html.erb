@@ -113,7 +113,7 @@ function mainTextOutput(choice){
 				show_text(text);
 			}
 
-		if (closing == true && choice > 0 && text[textLine+1] == undefined && allData[1].closing_event != "Остаться в Harat’s" )
+		if (closing == true && choice > 0 && text[textLine+1] == undefined && (allData[1].closing_event != "Остаться в Harat’s" || choice == 3 && allData[1].closing_event != "Остаться в Harat’s" ) )
 			{
 				$('div.guide img').unbind('click');
 				$('input[type="submit"]').unbind('click');
@@ -172,7 +172,7 @@ function mainTextOutput(choice){
 					}
 
 //специально для кнопок остаться в харатс
-			if ( text[textLine+1] == undefined && choice != 0 &&  ( allData[1].closing_event == "Остаться в Harat’s" || allData[2].closing_event == "Остаться в Harat’s" ) )
+			if ( text[textLine+1] == undefined && choice != 0 && choice !=3 &&  ( allData[1].closing_event == "Остаться в Harat’s" || allData[2].closing_event == "Остаться в Harat’s" ) )
 					{	
 
 						$('input[type="hidden"]').each(
