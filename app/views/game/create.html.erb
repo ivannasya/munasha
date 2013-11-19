@@ -5,13 +5,33 @@
         	<p>Дом: <%= session[:house] %><p>
         	<p>Работа: <%= session[:work] %><p>
         	<p>Harat's: <%= session[:harats] %><p>
-        	<%= @wins %>
+        	<!-- <%= @wins %> -->
         	<div class="badge_shell">
-        		<div class="badge_end badge_end_1"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
-        		<div class="badge_end badge_end_2"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
-        		<div class="badge_end badge_end_3"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
-        		<div class="badge_end badge_end_4"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
-        		<div class="badge_end badge_end_5"> <!-- <%= image_tag 'stat_badge_item.png' %> --> </div>
+        		<div class="badge_end badge_end_1"> 
+        			<% if @wins.length >= 1 %>
+        				<%= image_tag 'stat_badge_item.png' %> 
+        			<% end %>
+        		</div>
+        		<div class="badge_end badge_end_2"> 
+        			<% if @wins.length >= 2 %>
+        				<%= image_tag 'stat_badge_item.png' %> 
+        			<% end %>
+        		</div>
+        		<div class="badge_end badge_end_3"> 
+        			<% if @wins.length >= 3 %>
+        				<%= image_tag 'stat_badge_item.png' %> 
+        			<% end %>
+        		</div>
+        		<div class="badge_end badge_end_4"> 
+        			<% if @wins.length >= 4 %>
+        				<%= image_tag 'stat_badge_item.png' %> 
+        			<% end %>
+        		</div>
+        		<div class="badge_end badge_end_5"> 
+        			<% if @wins.length >= 5 %>
+        				<%= image_tag 'stat_badge_item.png' %> 
+        			<% end %>
+        		</div>
         	</div>
         </div>
         <div class="wrap">
