@@ -174,10 +174,44 @@ function mainTextOutput(choice){
 //специально для кнопок остаться в харатс
 			if ( text[textLine+1] == undefined && choice != 0 && choice !=3 &&  ( allData[1].closing_event == "Остаться в Harat’s" || allData[2].closing_event == "Остаться в Harat’s" ) )
 					{	
-
 						$('input[type="hidden"]').each(
 								function(){
-									if ($(this).val() ==choice) $(this).siblings('input[type="submit"]').val("Остаться в Harat's").unbind('click');
+									if ($(this).val() ==choice) 
+										$(this).siblings('input[type="submit"]').val("Остаться в Harat's").unbind('click');
+										$(this).siblings('input[type="submit"]').click(
+												function(){
+													
+													var choice = 3;
+
+													dest.innerHTML += '<Br/>';
+													dest.innerHTML += '==============';
+													dest.innerHTML += '<Br/>';
+
+													textLine = 0;
+													allowNext = 0;
+													mainTextOutput(choice);
+
+													console.log(choice);
+
+													$('div.guide img').attr('src','/assets/' + allData[choice].guide);
+													
+													$('div.guide img').click(
+																function(){
+																		if (allowNext==1)
+																			{
+																				allowNext=0;
+																				mainTextOutput(choice);
+																			}
+																	}
+																);
+
+													$('input[type="submit"]').attr('disabled','disabled');
+													$('button').attr('disabled','disabled');
+
+													return false;
+
+												}
+												)
 								});
 
 							$('div.guide img').unbind('click');
