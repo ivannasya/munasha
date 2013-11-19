@@ -201,10 +201,11 @@
 		background-size: 100%;
 		min-width: 800px;
 		max-width: 1200px;
-		height: 630px;
+		height: 600px;
 		margin: 0 auto;
 		border: none;
 		overflow: hidden;
+		
 	}
 
 	div.container img
@@ -250,7 +251,7 @@
 	div.text_output
 	{
 		float: left;
-		height: 90%;
+		height: 75%;
 		overflow-y: auto;
 		width: 62%;
 	}
@@ -262,6 +263,7 @@
 		height: 100%;
 		background-size: 100%;
 		overflow: hidden;
+		margin-top: -30px;
 	}
 
 	div.guide img
