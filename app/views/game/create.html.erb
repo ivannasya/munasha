@@ -171,45 +171,15 @@ function mainTextOutput(choice){
 						)
 					}
 
+
 //специально для кнопок остаться в харатс
 			if ( text[textLine+1] == undefined && choice != 0 && choice !=3 &&  ( allData[1].closing_event == "Остаться в Harat’s" || allData[2].closing_event == "Остаться в Harat’s" ) )
 					{	
 						$('input[type="hidden"]').each(
 								function(){
-									if ($(this).val() ==choice) 
-										$(this).siblings('input[type="submit"]').val("Остаться в Harat's").unbind('click');
-										$(this).siblings('input[type="submit"]').click(
-												function(){
-
-													dest.innerHTML += '<Br/>';
-													dest.innerHTML += '==============';
-													dest.innerHTML += '<Br/>';
-
-													textLine = 0;
-													allowNext = 0;
-													mainTextOutput(3);
-
-													console.log(3);
-
-													$('div.guide img').attr('src','/assets/' + allData[3].guide);
-													
-													$('div.guide img').click(
-																function(){
-																		if (allowNext==1)
-																			{
-																				allowNext=0;
-																				mainTextOutput(3);
-																			}
-																	}
-																);
-
-													$('input[type="submit"]').attr('disabled','disabled');
-													$('button').attr('disabled','disabled');
-
-													return false;
-
-												}
-												)
+									if ($(this).val() == choice) 
+										$(this).siblings('input[type="submit"]').remove();
+										// $(this).siblings('input[type="submit"]').click( function() {haratsButton.click(); return false;} );
 								});
 
 							$('div.guide img').unbind('click');
