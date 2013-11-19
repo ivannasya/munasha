@@ -46,6 +46,8 @@ class GameController < ApplicationController
 			session[:win] << 5
 			@badge = true
 	    end
+	    p session[:way]
+	    p @badge
 	    @wins = session[:win].uniq
 	    # Time of day
 	    time = ["", "Утро", "День", "Вечер", "Ночь", "Ночь"]
